@@ -20,8 +20,8 @@ UCLASS()
 class THIRDPERSONSHOOTER_API ALevelGenerator : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	ALevelGenerator();
 
@@ -47,6 +47,9 @@ public:
 	TMap<FColor, UStaticMesh*> StaticMeshColorMappings;
 
 	UPROPERTY(EditAnywhere, Category = "Level Generator|Color Mappings")
+	TMap<FColor, UStaticMesh*> InstancedStaticMeshColorMappings;
+
+	UPROPERTY(EditAnywhere, Category = "Level Generator|Color Mappings")
 	TMap<FColor, float> HeightOffsetColorMappings;
 
 	UPROPERTY(EditAnywhere, Category = "Level Generator|Color Mappings")
@@ -56,6 +59,8 @@ private:
 	const float WorldUnitScale = 100.f;
 
 	const float WorldRootOffset = 50.f;
+
+	TMap<FColor, AActor*> SpawnedISMActorColorMap;
 
 #endif // WITH_EDITOR
 
